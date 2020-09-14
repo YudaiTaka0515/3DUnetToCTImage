@@ -1,9 +1,4 @@
 # リファクタ確認済み(2020/09/03)
-# 直すべきところ : margin, load_mask(predictとtrainingで挙動が異なる), make_gif
-# TODO
-# CT画像およびマスク画像はPngに変更
-# 
-
 
 from Utils.LoadImage import *
 from natsort import natsorted
