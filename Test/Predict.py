@@ -14,9 +14,9 @@ ID = 25
 P = "OPE-" + str(ID)
 
 # データセット(test用)の格納場所
-TEST_DIR = r"/home/takahashi/LymphSegmentation/DataSet/"
+TEST_DIR = r"/"
 
-DIR_OUTPUT_IS_STORED = r"/home/takahashi/PycharmProjects/Segmentation3D/History/he_normarized_filtered/"
+DIR_OUTPUT_IS_STORED = r""
 # 学習済みのモデルの格納場所
 PRE_TRAINED_MODEL = DIR_OUTPUT_IS_STORED + r"model.h5"
 PRE_TRAINED_WEIGHTS = DIR_OUTPUT_IS_STORED + r"weights.hdf5"
@@ -33,11 +33,8 @@ if not os.path.exists(DIR_SAVED_GIF):
     print("made directory : ", DIR_SAVED_GIF)
 
 
-# TODO
-# あまりよくない
+
 def Predict(patient_id):
-    # 使用するGPUを指定（サーバー限定？）
-    # SetGPU(2)
     slices = 0
 
     # テスト画像, マスク画像の読み込み
