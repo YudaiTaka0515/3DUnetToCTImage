@@ -9,9 +9,6 @@ from sklearn.model_selection import train_test_split
 import cv2
 
 
-# Const.pyに入っているのでいらないはず
-# BATCH_SIZE = 4
-# NUM_EPOCHS = 100
 
 
 def main():
@@ -23,7 +20,6 @@ def main():
     # -----------------データの読み込み--------------------
     # TODO
     # load_dataset()の確認
-    # おそらく1oad_mask()も入っている
     train_images, train_masks, validation_images, validation_masks = LoadDataset(IMAGE_DIR, MASK_DIR, TEST_NUM)
     # 入力が正しいかチェックする
     print("-" * 20 + "check shape" + "-" * 20)
@@ -60,22 +56,6 @@ def main():
     X_validation = X_validation.reshape((X_validation.shape[0], 1, X_validation.shape[1], X_validation.shape[2], depth))
     Y_validation = Y_validation.reshape((Y_validation.shape[0], 1, Y_validation.shape[1], Y_validation.shape[2], depth))
 
-    """
-    Augmented_X, Augmented_Y = augment(X_train, Y_train)
-    del X_train, Y_train, Temp_X, Temp_Y
-
-    Augmented_X = Augmented_X.transpose((0, 2, 3, 1))
-    Augmented_Y = Augmented_Y.transpose((0, 2, 3, 1))
-    X_validation = X_validation.transpose((0, 2, 3, 1))
-    Y_validation = Y_validation.transpose((0, 2, 3, 1))
-    Augmented_X = Augmented_X.reshape((Augmented_X.shape[0], 1, SHAPE[1], SHAPE[2], 128))
-    Augmented_Y = Augmented_Y.reshape((Augmented_Y.shape[0], 1, SHAPE[1], SHAPE[2], 128))
-    X_validation = X_validation.reshape((X_validation.shape[0], 1, SHAPE[1], SHAPE[2], 128))
-    Y_validation = Y_validation.reshape((Y_validation.shape[0], 1, SHAPE[1], SHAPE[2], 128))
-
-    # Temp_X = Temp_X.reshape((Temp_X.shape[0], 1, Temp_X.shape[1], Temp_X.shape[2], Temp_X.shape[3]))
-    # Temp_Y = Temp_Y.reshape((Temp_Y.shape[0], 1, Temp_Y.shape[1], Temp_Y.shape[2], Temp_Y.shape[3]))
-    """
     model = isensee2017_model(input_shape=(1, 128, 128, depth))
     model_path = os.path.join(SAVE_DIR, "model.h5")
 
